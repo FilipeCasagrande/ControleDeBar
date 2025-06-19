@@ -8,7 +8,6 @@ namespace ControleDeBar.ConsoleApp.ModuloGarçons
         {
         }
 
-
         public override void CadastrarRegistro()
         {
             ExibirCabecalho();
@@ -108,16 +107,13 @@ namespace ControleDeBar.ConsoleApp.ModuloGarçons
         protected override Garcon ObterDados()
         {
 
-            Console.WriteLine("Informe o Nome do Garçon");
+            Console.Write("Informe o Nome do Garçon: ");
             string nome = Console.ReadLine();
 
-            Console.WriteLine("Infome o CPF do garçon");
+            Console.Write("Infome o CPF do garçon: ");
             string CPF = Console.ReadLine();
 
-            Garcon garcon = new Garcon();
-
-            garcon.Nome = nome;
-            garcon.CPF = CPF;
+            Garcon garcon = new Garcon(nome, CPF);
 
             return garcon;
 

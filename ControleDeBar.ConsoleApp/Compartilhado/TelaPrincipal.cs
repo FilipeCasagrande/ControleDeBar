@@ -1,5 +1,6 @@
 ﻿using ControleDeBar.ConsoleApp.ModuloGarçons;
 using ControleDeBar.ConsoleApp.ModuloMesa;
+using ControleDeBar.ConsoleApp.ModuloProduto;
 
 namespace ControleDeBar.ConsoleApp.Compartilhado;
 
@@ -13,7 +14,9 @@ public class TelaPrincipal
     private RepositorioGarcon repositoioGarcon;
     private TelaGarcon telaGarcon;
 
-     
+    private RepositorioProduto repositoProduto;
+    private TelaProduto telaProduto;
+
     public TelaPrincipal()
     {
         repositorioMesa = new RepositorioMesa();
@@ -21,6 +24,9 @@ public class TelaPrincipal
 
         repositoioGarcon = new RepositorioGarcon();
         telaGarcon = new TelaGarcon(repositoioGarcon);
+
+        repositoProduto = new RepositorioProduto();
+        telaProduto = new TelaProduto(repositoProduto);
     }
 
     public void ApresentarMenuPrincipal()
@@ -54,7 +60,7 @@ public class TelaPrincipal
             return telaGarcon;
 
         if (opcaoEscolhida == '3')
-            return null;
+            return telaProduto;
 
         if (opcaoEscolhida == '4')
             return null;

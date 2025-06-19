@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using ControleDeBar.ConsoleApp.Compartilhado;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleDeBar.ConsoleApp.ModuloGarçons
 {
@@ -8,6 +7,12 @@ namespace ControleDeBar.ConsoleApp.ModuloGarçons
     {
         public string Nome;
         public string CPF;
+
+        public Garcon(string nome, string CPF)
+        {
+            Nome = nome;
+            this.CPF = CPF;
+        }
 
         public override void AtualizarRegistro(Garcon registroAtualizado)
         {
@@ -20,7 +25,7 @@ namespace ControleDeBar.ConsoleApp.ModuloGarçons
             string erros = string.Empty;
 
             if (Nome.Length < 3)
-            erros += "O campo \"Nome\" deve conter pelomenos 3 caracteres.";
+            erros += "O campo \"Nome\" deve conter pelomenos 3 caracteres.\n";
 
             if (!Regex.IsMatch(CPF, @"^\d{3}\.\d{3}\.\d{3}\-\d{2}$")) 
                 erros += "\"O campo \\\"CPF\\\" deve seguir o padrão 000.000.000-00.\";";
